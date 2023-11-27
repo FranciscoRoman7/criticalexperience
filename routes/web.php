@@ -1,18 +1,27 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisteredUserController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//RUTAS DE REGISTRO Y LOGIN
+Route::view('/','regis')->name('login')->middleware('guest');
+
+Route::get('/home', function () {
+    $user = auth()->user();
+    $isAdmin = $user ? $user->admin : false;
+    return view('home', [
+        'username' => $user ? $user->name : null,
+        'isAdmin' => $isAdmin,
+    ]);
+})->name('home')->middleware('auth');
+
+Route::post('/', [RegisteredUserController::class, 'store'])->name('registro');
+Route::post('/home', [RegisteredUserController::class, 'login'])->name('login.post');
+
+
+//RUTA LOGOUT
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect('/'); // Redirige a la página de registro después de cerrar sesión
+})->name('logout');
