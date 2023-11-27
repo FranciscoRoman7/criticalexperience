@@ -5,6 +5,8 @@ use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\FileController;
+
 
 
 
@@ -49,6 +51,13 @@ Route::get('/campaigns/{campaign}', [CampaignController::class, 'show'])->name('
 Route::get('/campaigns/{campaign}/edit', [CampaignController::class, 'edit'])->name('campaigns.edit');
 Route::put('/campaigns/{campaign}', [CampaignController::class, 'update'])->name('campaigns.update');
 Route::delete('/campaigns/{campaign}', [CampaignController::class, 'destroy'])->name('campaigns.destroy');
+
+//RUTAS GESTION DE FICHEROS
+Route::get('files', [FileController::class, 'index'])->name('files.index');
+Route::post('files', [FileController::class, 'store'])->name('files.store');
+Route::get('files/{file}/download', [FileController::class, 'download'])->name('files.download');
+Route::delete('files/{file}', [FileController::class, 'destroy'])->name('files.destroy');
+Route::get('/files/{file}/show',  [FileController::class, 'show'])->name('files.show');
 
 
 //RUTA LOGOUT
