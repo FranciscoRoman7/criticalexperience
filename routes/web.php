@@ -6,10 +6,7 @@ use App\Http\Controllers\EventoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\FileController;
-
-
-
-
+use App\Http\Controllers\TiradaDadoController;
 
 //RUTAS DE REGISTRO Y LOGIN
 Route::view('/','regis')->name('login')->middleware('guest');
@@ -59,6 +56,10 @@ Route::get('files/{file}/download', [FileController::class, 'download'])->name('
 Route::delete('files/{file}', [FileController::class, 'destroy'])->name('files.destroy');
 Route::get('/files/{file}/show',  [FileController::class, 'show'])->name('files.show');
 
+//RUTAS TIRAR DADOS
+Route::get('/dados', [TiradaDadoController::class, 'mostrar'])->name('tiradas.mostrar');
+Route::post('/dados/guardar', [TiradaDadoController::class, 'guardar'])->name('tiradas.guardar');
+Route::delete('/dados/borrar', [TiradaDadoController::class, 'borrarTiradas'])->name('tiradas.borrar');
 
 //RUTA LOGOUT
 Route::get('/logout', function () {
