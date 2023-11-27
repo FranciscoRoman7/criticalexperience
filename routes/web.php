@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\EventoController;
+use App\Http\Controllers\UserController;
 
 
 
@@ -29,6 +30,14 @@ Route::post('/calendario/editar/{id}', [EventoController::class, 'edit'])->middl
 Route::post('/calendario/actualizar/{evento}', [EventoController::class, 'update'])->middleware('auth');
 Route::post('/calendario/borrar/{id}', [EventoController::class, 'destroy'])->middleware('auth');
 
+//RUTAS CRUD USUARIOS
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
+Route::get('/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
+Route::put('/users/update/{id}', [UserController::class, 'update'])->name('users.update');
+Route::get('/users/delete/{id}', [UserController::class, 'confirmDelete'])->name('users.confirmDelete');
+Route::delete('/users/destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
 //RUTA LOGOUT
 Route::get('/logout', function () {
