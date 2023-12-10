@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -63,19 +63,13 @@ class UserController extends Controller
     // Validación de los datos del formulario
     $this->validate($request, [
         'name' => 'required',
-        'email' => 'required|email|unique:users,email,' . $id,
-        'password' => 'nullable|min:8', // Puedes ajustar las reglas de validación según tus necesidades
+
     ]);
 
     // Actualización del usuario
     $user = User::find($id);
     $user->name = $request->input('name');
-    $user->email = $request->input('email');
-
-    // Actualizar la contraseña solo si se proporciona una nueva
-    if ($request->has('password') && !empty($request->input('password'))) {
-        $user->password = bcrypt($request->input('password'));
-    }
+    
     $user->admin = $request->has('admin') ? true : false;
 
     $user->save();

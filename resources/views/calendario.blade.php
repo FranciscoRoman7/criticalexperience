@@ -5,18 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+
+      .cabecera{
+
+        padding:5%;
+        padding-left:9%
+
+        }    
+
         #container {
-            padding:10%;
-        }
+          padding-top:0%;
+            padding:5%;
+        }   
 
         @media (max-width: 768px) {
           #container {
             padding:8%;
-            padding-top:20%;
             padding-left:15%;
-        } 
+          }
+          
+          .cabecera{
+
+          padding:10%;
+          padding-left:20%
+
+          }   
+
         }
-        
+        .is-invalid {
+            border: 1px solid red;
+        }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -29,15 +47,15 @@
     <title>Calendario</title>
 </head>
 <body>
-    
 
-
-
+  <div class="cabecera">
+    <hr>
+    <h1>Calendario de eventos</h1>
+    <hr>
+  </div>
 
 <div id="container">
-  <hr>
-  <h1>Calendario de eventos</h1>
-  <hr>
+  
   <div id="calendario">
   </div>
   <div class="modal fade" id="evento" tabindex="-1" role="dialog" aria-labelledby="modelTitleId">
@@ -76,9 +94,7 @@
 
           </form>
         </div>
-        @error('error')
-        <label id="error" style="color: red" class="login-error">{{$message}}</label>
-        @enderror
+
         <div class="modal-footer">
           <button type="button" class="btn btn-success" id="btguardar">Guardar</button>
           <button type="button" class="btn btn-warning" id="btmodificar">Modificar</button>
@@ -111,7 +127,26 @@
   </div>
 </div>
 
+<script>
+  document.getElementById('btguardar').addEventListener('click', function() {
+    var inputs = document.querySelectorAll('form input, form textarea');
 
+    inputs.forEach(function(input) {
+      if (input.value.trim() === '') {
+        input.classList.add('is-invalid');
+      } else {
+        input.classList.remove('is-invalid');
+      }
+    });
+
+    var invalidInputs = document.querySelectorAll('.is-invalid');
+    if (invalidInputs.length > 0) {
+      invalidInputs[0].focus();
+    } else {
+      
+    }
+  });
+</script>
 </body>
 <script src="./js/agenda.js"></script>
 </html>

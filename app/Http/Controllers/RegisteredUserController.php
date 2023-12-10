@@ -15,16 +15,17 @@ class RegisteredUserController extends Controller
     {
 
         $request->validate([
-            'name'=> ['required', 'string', 'max:255'],
-            'email'=> ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password'=> ['required', 'confirmed', Rules\Password::defaults()],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'confirmed', 'min:8', Rules\Password::defaults()],
         ], [
             'name.required' => 'El campo nombre es obligatorio.',
             'email.required' => 'El campo correo electrónico es obligatorio.',
             'email.email' => 'El correo electrónico debe ser válido.',
             'email.unique' => 'Este correo electrónico ya está registrado.',
             'password.required' => 'El campo contraseña es obligatorio.',
-            'password.confirmed' => 'Las contraseñas no coinciden.'
+            'password.confirmed' => 'Las contraseñas no coinciden.',
+            'password.min' => 'La contraseña debe tener al menos 8 caracteres.',
         ]);
     
         // Verificar si el correo electrónico ya existe en la base de datos
@@ -33,6 +34,7 @@ class RegisteredUserController extends Controller
         if ($existingUser) {
             return redirect()->back()->with('registration_error', 'Este correo electrónico ya está registrado.');
         }
+        
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,

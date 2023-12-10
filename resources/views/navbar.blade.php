@@ -95,19 +95,50 @@
             }
         }
 
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .user-info p {
+            margin-bottom: 0;
+            margin-right: 10px;
+            font-size: 16px;
+            color: white;
+        }
+
+        .user-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .user-info a:hover {
+            color: #ffc107;
+        }
+
+        .user-info a .profile-icon {
+            margin-right: 5px;
+            font-size: 18px;
+        }
     </style>
 </head>
 
 <body>
-    <div id="top-bar" class="d-flex">
-        
+<div id="top-bar" class="d-flex">
         <div class="logo-container">
-        <img id="logo" src="./images/logo.png" alt="Logo">
-        <span class="brand-name">Critical Experience</span>
+            <img id="logo" src="./images/logo.png" alt="Logo">
+            <span class="brand-name">Critical Experience</span>
         </div>
 
         <div class="ml-auto">
-            {{ $username }}, ¡Disfruta!
+            <div class="user-info">
+                <a href="perfil">{{$username}}<br><i class="fas fa-user profile-icon"></i></a>
+            </div>
         </div>
     </div>
 
@@ -131,7 +162,7 @@
                 </li>
                 @if($isAdmin)
                 <li class="nav-item">
-                    <a class="nav-link" href="users" title="Usuarios"><i class="fas fa-user"></i></a>
+                    <a class="nav-link" href="users" title="Usuarios"><i class="fas fa-users"></i></a>
                 </li>
                 @endif
                 <li class="nav-item">

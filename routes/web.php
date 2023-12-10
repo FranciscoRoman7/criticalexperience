@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\TiradaDadoController;
+use App\Http\Controllers\PerfilController;
+
 
 //RUTAS DE REGISTRO Y LOGIN
 Route::view('/','regis')->name('login')->middleware('guest');
@@ -60,6 +62,11 @@ Route::get('/files/{file}/show',  [FileController::class, 'show'])->name('files.
 Route::get('/dados', [TiradaDadoController::class, 'mostrar'])->name('tiradas.mostrar');
 Route::post('/dados/guardar', [TiradaDadoController::class, 'guardar'])->name('tiradas.guardar');
 Route::delete('/dados/borrar', [TiradaDadoController::class, 'borrarTiradas'])->name('tiradas.borrar');
+
+//RUTAS PERFIL
+Route::get('/perfil', [PerfilController::class, 'show'])->name('perfil.show');
+Route::post('/perfil/actualizar', [PerfilController::class, 'update'])->name('perfil.update');
+
 
 //RUTA LOGOUT
 Route::get('/logout', function () {

@@ -2,9 +2,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container my-4 pt-5 p-4">
-    <h2>Gestión de Archivos</h2>
-
+<div class= "cont">
+    <hr>
+    <h1>Gestión de Archivos</h1>
+    <hr>
     <!-- Formulario para subir archivos -->
     <form action="{{ route('files.store') }}" method="post" enctype="multipart/form-data">
         @csrf
@@ -59,13 +60,35 @@
                         <form action="{{ route('files.destroy', $file->id) }}" method="post" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Eliminar</button>
+                            <button type="button" class="btn btn-danger delete-file">Eliminar</button>
                         </form>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+
+     <!-- Modal de confirmación de eliminación -->
+     <div class="modal fade" id="confirmacionEliminar" tabindex="-1" role="dialog" aria-labelledby="confirmacionEliminarLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmacionEliminarLabel">Confirmar Eliminación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ¿Está seguro de que desea eliminar este registro?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" id="confirmarEliminar" class="btn btn-danger">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script>
         document.getElementById('campaign_id').addEventListener('change', function() {
@@ -86,6 +109,14 @@
             });
         });
     });
+
+    $('.delete-file').on('click', function() {
+        var deleteForm = $(this).closest('form');
+        $('#confirmacionEliminar').modal('show');
+        $('#confirmarEliminar').on('click', function() {
+            deleteForm.submit();
+        });
+    });
     </script>
 
     <script>
@@ -95,5 +126,6 @@
             label.textContent = fileName;
         });
     </script>
+
 </div>
 @endsection

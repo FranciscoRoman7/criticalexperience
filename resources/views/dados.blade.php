@@ -10,7 +10,7 @@
     <style>
 
         #container {
-            padding: 10%;
+            padding: 5%;
         }
 
         body {
@@ -52,6 +52,7 @@
             max-width: 90%;
             width: 100%;
             margin:50px;
+            font-size:30px;
         }
 
         .history-list {
@@ -64,6 +65,7 @@
             font-size: 14px;
             text-align:center;
             margin: 0;
+            font-size:20px;
         }
 
         .clear-history {
@@ -103,6 +105,7 @@
         @media (max-width: 767px) {
 
             #container{
+                padding:10%;
                 padding-left:20%;
                 
             }
@@ -141,15 +144,14 @@
                 margin-bottom:0%;
             }
 
-            .history{
-                top:5%;
-                margin:40px;
-                margin-bottom:200px;
+            .history {
+                top: 5%;
+                margin: 70px;
+                margin-bottom: 50px;
             }
 
             .history-list {
-                font-size: 12px;
-                max-height: 150px;
+                font-size: 20px;
             }
 
             .counter-buttons {
@@ -212,12 +214,19 @@
                 <div class="history">
                     <h2 align="center">Historial de Tiradas</h2>
                     <ul class="history-list">
-                        @foreach($tiradas as $tirada)
+                        @php
+                            $totalSum = 0; // Variable para almacenar la sumatoria de resultados
+                        @endphp
+                        @foreach($tiradas->reverse() as $tirada)
+                            @php
+                                $totalSum += $tirada->total; // Sumar al total
+                            @endphp
                             <li>
                                 D{{ $tirada->tipo_dado }}-Tirada: {{$tirada->resultado}} + Bonificador: {{ $tirada->bonificador }} = Resultado: {{ $tirada->total }}
                             </li>
                         @endforeach
                     </ul>
+                    <p align="center">Total de resultados: {{ $totalSum }}</p>
                     <button class="btn btn-danger clear-history">Borrar Historial</button>
                 </div>
             </div>

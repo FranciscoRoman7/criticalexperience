@@ -16,7 +16,7 @@
         }
 
         #content-container {
-            padding: 10%;
+            padding: 6%;
         }
 
         .card {
@@ -43,8 +43,10 @@
     <div id="content-container">
         <div id="page-content-wrapper">
             <div class="container mt-4">
-                <h1 class="text-center">Gestión de Roles</h1>
-                <p class="lead text-center mb-4">Una breve introducción a la aplicación de gestión de roles.</p>
+                <hr>
+                <h1 class="text-center">¡Bienvenido a Critical Experience!</h1>
+                <hr>
+                <p class="lead text-center mb-4">Esta aplicación de gestión de juegos de rol ofrece herramientas poderosas para administrar diferentes aspectos dentro de tu entorno.</p>
                
                 <!-- Cards para cada apartado correspondiendo a los elementos del Navbar -->
                 <div class="row">
@@ -93,7 +95,7 @@
                                 <i class="fas fa-dice fa-4x mb-3"></i>
                                 <h4 class="card-title">Dados</h4>
                                 <p class="card-text"><strong>¿Se te han olvidado? ¡Tira los dados!</strong></p>
-                                <p>En esta ventana puedes tirar dados y los datos se registrarán en tus hitorial de tiradas.</p>
+                                <p>En esta ventana puedes tirar dados y los datos se registrarán en tus historial de tiradas.</p>
                             </div>
                         </div>
                     </a>
@@ -107,6 +109,18 @@
                                 <h4 class="card-title">Archivos</h4>
                                 <p class="card-text"><strong>¡Sube y gestiona tus archivos!</strong></p>
                                 <p>En esta ventana puedes subir y gestionar archivos relacionados con las campañas existentes.</p>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 mb-4" id="Archivos">
+                    <a href="perfil" style="color:black;">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-user fa-4x mb-3"></i>
+                                <h4 class="card-title">Tu perfil</h4>
+                                <p>¡En esta ventana puede visualizar tus datos y cambiar tu nombre o contraseña!</p>
                             </div>
                         </div>
                     </a>

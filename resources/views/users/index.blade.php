@@ -67,17 +67,17 @@
                     <!-- Campo para el nombre del usuario -->
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" class="form-control" name="name" id="name">
+                        <input type="text" class="form-control" name="name" id="name" required>
                     </div>
                     <!-- Campo para el email del usuario -->
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" id="email">
+                        <input type="email" class="form-control" name="email" id="email" required>
                     </div>
                     <!-- Campo para la contraseña del usuario -->
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="password" class="form-control" name="password" id="password">
+                        <input type="password" class="form-control" name="password" id="password" required>
                     </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" name="admin" id="admin" value="1">
@@ -111,17 +111,7 @@
                     <!-- Campo para el nombre del usuario -->
                     <div class="form-group">
                         <label for="name">Nombre *</label>
-                        <input type="text" class="form-control" name="name" id="name" value="{{ $user->name }}">
-                    </div>
-                    <!-- Campo para el email del usuario -->
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" class="form-control" name="email" id="email" value="{{ $user->email }}">
-                    </div>
-                    <!-- Campo para la contraseña del usuario (si lo deseas) -->
-                    <div class="form-group">
-                        <label for="password">Contraseña</label>
-                        <input type="password" class="form-control" name="password" id="password">
+                        <input type="text" class="form-control" name="name" id="name" value="{{ $user->name }}" required>
                     </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" name="admin" id="admin" value="1" {{ $user->admin ? 'checked' : '' }}>
