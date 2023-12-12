@@ -1,0 +1,27 @@
+#tabla{
+
+    padding:5%;
+    padding:0px;
+
+}
+
+h1{
+
+  padding-top:6%;
+  text-align:center;
+
+}
+
+/* Media query para dispositivos móviles */
+@media screen and (max-width: 767px) {
+.cont {
+  padding-top: 2%;
+}
+
+h1{
+
+  padding-top:10%;
+
+}
+
+}

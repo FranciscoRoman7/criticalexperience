@@ -1,0 +1,41 @@
+.cabecera{
+
+    padding-top:5%;
+    padding-left:9%
+
+    }    
+
+    h1{
+
+      text-align:center;
+
+    }
+
+    #calendario{
+
+      height: 65vh;
+
+    }
+
+
+    #container {
+      padding-left:9%;
+      padding-right:9%;
+    }   
+
+    @media (max-width: 768px) {
+      #container {
+        padding-left:15%;
+      }
+      
+      .cabecera{
+
+      padding:10%;
+      padding-left:20%
+
+      }   
+
+    }
+    .is-invalid {
+        border: 1px solid red;
+    }

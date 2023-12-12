@@ -1,12 +1,11 @@
 @include('navbar')
 @extends('layouts.app')
 @section('content')
-
-<div class="container" id = "tabla">
-
     <hr>
     <h1>Lista de Usuarios</h1>
     <hr>
+
+<div class="container" id = "tabla">
 
     <!-- Botón para abrir el modal de creación -->
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal">
@@ -36,7 +35,7 @@
                 <td>{{ $user->email }}</td>
                 <td>
                     <!-- Botón para abrir el modal de edición -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal{{$user->id}}">
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editModal{{$user->id}}">
                     <i class="fas fa-pencil-alt"></i>
                     </button>
                     <!-- Botón para abrir el modal de confirmación de eliminación -->
@@ -83,8 +82,7 @@
                         <input type="checkbox" class="form-check-input" name="admin" id="admin" value="1">
                         <label class="form-check-label" for="admin">Admin</label>
                     </div>
-                    <!-- Agrega más campos según tus necesidades -->
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="submit" class="btn btn-success">Guardar</button>
                 </form>
             </div>
         </div>
@@ -110,15 +108,14 @@
                     @method('PUT')
                     <!-- Campo para el nombre del usuario -->
                     <div class="form-group">
-                        <label for="name">Nombre *</label>
+                        <label for="name">Nombre</label>
                         <input type="text" class="form-control" name="name" id="name" value="{{ $user->name }}" required>
                     </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" name="admin" id="admin" value="1" {{ $user->admin ? 'checked' : '' }}>
                         <label class="form-check-label" for="admin">Admin</label>
                     </div>
-                    <!-- Agrega más campos según tus necesidades -->
-                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    <button type="submit" class="btn btn-warning">Guardar Cambios</button>
                 </form>
             </div>
         </div>
@@ -134,7 +131,6 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <!-- Agrega un botón que ejecute la acción de eliminación en el controlador -->
                 <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                     @csrf
                     @method('DELETE')

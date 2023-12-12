@@ -1,0 +1,153 @@
+#container {
+
+    padding: 5%;
+
+}
+
+body {
+    
+    background-color: #f8f9fa;
+    margin: 0;
+
+}
+
+
+header {
+
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.img {
+
+    width: 80px;
+    height: 80px;
+
+}
+
+.controls-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.history {
+    max-width: 90%;
+    width: 100%;
+    margin:10px;
+    font-size:20px;
+}
+
+.history-list {
+    list-style-type: none;
+    padding: 0;
+    overflow-y: auto;
+    max-height: 200px;
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    text-align:center;
+    margin: 0;
+    font-size:15px;
+}
+
+.clear-history {
+    margin-top: 10px;
+    margin-left:45px;
+}
+
+.counter-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom:0%;
+}
+
+.counter-buttons button {
+    margin: 0 10px;
+}
+
+.dice-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color:#fff;
+    gap: 5px;
+}
+
+.dice {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    flex: 0 0 calc(10% - 10px);
+    max-width: calc(100% - 10px);
+}
+
+@media (max-width: 767px) {
+
+    #container{
+        padding:10%;
+        padding-left:20%;
+        
+    }
+
+    .controls-container {
+       
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position:fixed;
+    }
+
+    .dice-container {
+        order: 2;
+        flex-direction: row;
+        position:fixed;
+        bottom:0px;
+
+    }
+
+    .dice {
+        max-width: calc(100%);
+    }
+
+    .mobile-controls {
+        order: 1;
+        position: sticky;
+        background-color: #fff;
+        z-index: 1000;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-bottom:0%;
+    }
+
+    .history {
+        top: 5%;
+        margin: 70px;
+        margin-bottom: 50px;
+    }
+
+    .history-list {
+        font-size: 20px;
+    }
+
+    .counter-buttons {
+        display: flex;
+    }
+}

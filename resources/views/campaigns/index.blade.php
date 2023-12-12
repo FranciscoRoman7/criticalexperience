@@ -30,7 +30,7 @@
                     <td>{{ $campaign->ambientacion }}</td>
                     <td>{{ $campaign->descripcion }}</td>
                     <td>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal{{ $campaign->id }}">
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editModal{{ $campaign->id }}">
                             <i class="fas fa-pencil-alt"></i>
                         </button>
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteModal{{ $campaign->id }}">
@@ -89,7 +89,7 @@
                         <label for="descripcion">Descripción *</label>
                         <textarea class="form-control" name="descripcion" id="descripcion" rows="3" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="submit" class="btn btn-success">Guardar</button>
                 </form>
             </div>
         </div>
@@ -123,7 +123,7 @@
                             <label for="descripcion">Descripción *</label>
                             <textarea class="form-control" name="descripcion" id="descripcion" rows="3" required>{{ $campaign->descripcion }}</textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        <button type="submit" class="btn btn-warning">Guardar Cambios</button>
                     </form>
                 </div>
             </div>

@@ -1,6 +1,8 @@
+
+let formulario = document.querySelector("form");
+
 document.addEventListener('DOMContentLoaded', function() {
 
-  let formulario = document.querySelector("form");
   var evento;
 
   //Se declara el calendario
@@ -123,5 +125,41 @@ document.addEventListener('DOMContentLoaded', function() {
         )
   }
 
-
   });
+
+  //Cuando no se introduzcan datos en algún campo esto mostrará los campos con borde rojo
+  document.getElementById('btguardar').addEventListener('click', function() {
+    var inputs = document.querySelectorAll('form input, form textarea');
+
+    inputs.forEach(function(input) {
+      if (input.value.trim() === '') {
+        input.classList.add('is-invalid');
+      } else {
+        input.classList.remove('is-invalid');
+      }
+    });
+
+    var invalidInputs = document.querySelectorAll('.is-invalid');
+    if (invalidInputs.length > 0) {
+      invalidInputs[0].focus();
+    } else {
+      
+    }
+  });
+
+  //Muestra el boton guardar y oculta los otros dos cuando se pulsa el boton
+  document.addEventListener('DOMContentLoaded', function() {
+    var btnCrearEvento = document.getElementById('btnCrearEvento');
+
+    btnCrearEvento.addEventListener('click', function() {
+        formulario.title.value = '';
+        formulario.descripcion.value = '';
+        formulario.start.value = '';
+        formulario.end.value = '';
+        document.getElementById('btmodificar').style.display = 'none';
+        document.getElementById('bteliminar').style.display = 'none';
+        document.getElementById('btguardar').style.display = 'block';
+    });
+
+});
+

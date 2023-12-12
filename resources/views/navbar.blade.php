@@ -5,127 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Agrega FontAwesome para los iconos -->
+    <link rel="stylesheet" href="./css/navbar.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
-
-        #top-bar {
-            background-color: #0e3b74;
-            color: #fff;
-            margin: 0%;
-            padding: 3px;
-            text-align: left;
-            position: fixed;
-            width: 100%;
-            z-index: 999;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .brand-name {
-            font-family: 'Arial', sans-serif;
-            font-size: 24px;
-            margin-left: 10px;
-            color: white;
-        }
-
-        #logo {
-            width: 50px;
-            height: 70px;
-            margin-right: 10px;
-            padding-left:10px
-        }
-
-        #sidebar-wrapper {
-            height: 100%;
-            width: 80px;
-            position: fixed;
-            top: 50px;
-            left: -80px;
-            z-index: 998;
-
-            background-color: #1a1a1a;
-            transition: all 0.5s;
-        }
-
-        #sidebar-wrapper a {
-            padding: 15px 10px;
-            text-decoration: none;
-            font-size: 24px;
-            color: #fff;
-            display: block;
-            transition: 0.2s;
-            text-align: center;
-        }
-
-        #sidebar-wrapper a:hover {
-            background-color: #004d82;
-        }
-
-        #sidebar-wrapper.toggled {
-            left: 0;
-        }
-
-        #menu-toggle {
-            position: fixed;
-            top: 80px;
-            left: 10px;
-            z-index: 1;
-            color: #0e3b74;
-            background-color: transparent;
-            border: none;
-            outline: none;
-            font-size: 30px;
-            cursor: pointer;
-            transition: 0.5s;
-        }
-
-        @media (max-width: 768px) {
-            #menu-toggle {
-                display: none;
-            }
-
-            #sidebar-wrapper {
-                left: 0;
-            }
-        }
-
-        .user-info {
-            display: flex;
-            align-items: center;
-            margin-right: 20px;
-        }
-
-        .user-info p {
-            margin-bottom: 0;
-            margin-right: 10px;
-            font-size: 16px;
-            color: white;
-        }
-
-        .user-info a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            transition: color 0.3s ease;
-        }
-
-        .user-info a:hover {
-            color: #ffc107;
-        }
-
-        .user-info a .profile-icon {
-            margin-right: 5px;
-            font-size: 18px;
-        }
-    </style>
 </head>
 
 <body>
@@ -178,18 +61,7 @@
         </div>
     </div>
 
-    <script>
-        document.getElementById("menu-toggle").addEventListener("click", function () {
-            document.getElementById("sidebar-wrapper").classList.toggle("toggled");
-
-            const menuToggle = document.getElementById("menu-toggle");
-            if (document.getElementById("sidebar-wrapper").classList.contains("toggled")) {
-                menuToggle.style.left = "90px";
-            } else {
-                menuToggle.style.left = "20px";
-            }
-        });
-    </script>
+    <script src="./js/navbar.js"></script>
     
 </body>
 

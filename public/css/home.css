@@ -1,0 +1,29 @@
+body{
+    overflow:hidden;
+}
+
+#content-container {
+    padding: 4%;
+}
+
+.card {
+    transition: box-shadow 0.3s ease-in-out;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.card-text{
+
+    font-size:14px;
+
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    body{overflow:visible;}
+    #content-container {
+    padding-left: 15%;
+}
+}
