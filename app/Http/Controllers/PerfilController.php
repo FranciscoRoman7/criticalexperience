@@ -29,6 +29,9 @@ class PerfilController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'password' => 'nullable|string|min:8|confirmed',
+            'codigopostal' => 'nullable|string|max:255',
+            'direccion' => 'nullable|string|max:255',
+            'telefono' => 'nullable|string|max:20',
         ], [
             'name.required' => 'El nombre es obligatorio.',
             'name.string' => 'El nombre debe ser una cadena de caracteres.',
@@ -39,6 +42,9 @@ class PerfilController extends Controller
         ]);
 
         $user->name = $request->input('name');
+        $user->codigopostal = $request->input('codigopostal');
+        $user->direccion = $request->input('direccion');
+        $user->telefono = $request->input('telefono');
 
         if ($request->filled('password')) {
             $user->password = bcrypt($request->input('password'));

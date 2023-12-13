@@ -47,6 +47,9 @@ class UserController extends Controller
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
         $user->admin = $request->has('admin') ? true : false;
+        $user->codigopostal = $request->input('codigopostal');
+        $user->direccion = $request->input('direccion');
+        $user->telefono = $request->input('telefono');
         $user->save();
 
         return redirect()->route('users.index');
@@ -69,8 +72,10 @@ class UserController extends Controller
     // Actualización del usuario
     $user = User::find($id);
     $user->name = $request->input('name');
-    
     $user->admin = $request->has('admin') ? true : false;
+    $user->codigopostal = $request->input('codigopostal');
+    $user->direccion = $request->input('direccion');
+    $user->telefono = $request->input('telefono');
 
     $user->save();
 

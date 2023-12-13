@@ -1,8 +1,6 @@
 #tabla{
 
     padding:5%;
-    padding:0px;
-
 }
 
 h1{
@@ -12,11 +10,21 @@ h1{
 
 }
 
+#perfil{
+
+padding-bottom:10%;
+
+
+}
+
+
+
 /* Media query para dispositivos móviles */
 @media screen and (max-width: 767px) {
 .cont {
   padding-top: 2%;
 }
+
 
 h1{
 

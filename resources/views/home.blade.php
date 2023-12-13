@@ -29,7 +29,7 @@
                         <a href="users" style="color:black;">
                         <div class="card h-100">
                             <div class="card-body text-center">
-                                <i class="fas fa-users fa-4x mb-3"></i>
+                                <i class="fas fa-users fa-4x mb-1"></i>
                                 <h4 class="card-title">Usuarios</h4>
                                 <p class="card-text">Gestiona los usuarios de la aplicación.</p>
                             </div>
@@ -38,11 +38,11 @@
                     </div>
                 @endif
 
-                    <div class="col-lg-4 col-md-6 mb-4" id="Eventos">
+                    <div class="col-lg-4 col-md-4 mb-4" id="Eventos">
                     <a href="calendario" style="color:black;">
                         <div class="card h-100">
                             <div class="card-body text-center">
-                                <i class="fas fa-calendar-alt fa-4x mb-3"></i>
+                                <i class="fas fa-calendar-alt fa-4x mb-1"></i>
                                 <h4 class="card-title">Calendario</h4>
                                 <p class="card-text">¡Gestiona tus propios eventos!</p>
                             </div>
@@ -50,11 +50,11 @@
                     </a>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 mb-4" id="Campañas">
+                    <div class="col-lg-4 col-md-4 mb-4" id="Campañas">
                     <a href="campaigns" style="color:black;">
                         <div class="card h-100">
                             <div class="card-body text-center">
-                                <i class="fas fa-fire fa-4x mb-3"></i>
+                                <i class="fas fa-fire fa-4x mb-1"></i>
                                 <h4 class="card-title">Campañas</h4>
                                 <p class="card-text">¡Registra y gestiona las campañas en las que estes participando!</p>
                             </div>
@@ -62,11 +62,11 @@
                     </a>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 mb-4" id="Dados">
+                    <div class="col-lg-4 col-md-4 mb-4" id="Dados">
                     <a href="dados" style="color:black;">
                         <div class="card h-100">
                             <div class="card-body text-center">
-                                <i class="fas fa-dice fa-4x mb-3"></i>
+                                <i class="fas fa-dice fa-4x mb-1"></i>
                                 <h4 class="card-title">Dados</h4>
                                 <p class="card-text"><strong>¿Se te han olvidado? ¡Tira los dados!</strong></p>
                                 <p class="card-text">En esta ventana puedes tirar dados y los datos se registrarán en tus historial de tiradas.</p>
@@ -75,11 +75,11 @@
                     </a>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 mb-4" id="Archivos">
+                    <div class="col-lg-4 col-md-4 mb-4" id="Archivos">
                     <a href="files" style="color:black;">
                         <div class="card h-100">
                             <div class="card-body text-center">
-                                <i class="fas fa-file fa-4x mb-3"></i>
+                                <i class="fas fa-file fa-4x mb-1"></i>
                                 <h4 class="card-title">Archivos</h4>
                                 <p class="card-text"><strong>¡Sube y gestiona tus archivos!</strong></p>
                                 <p class="card-text">En esta ventana puedes subir y gestionar archivos relacionados con las campañas existentes.</p>
@@ -88,11 +88,11 @@
                     </a>
                     </div>
                     
-                    <div class="col-lg-4 col-md-6 mb-4" id="Archivos">
+                    <div class="col-lg-4 col-md-4 mb-4" id="Archivos">
                     <a href="perfil" style="color:black;">
                         <div class="card h-100">
                             <div class="card-body text-center">
-                                <i class="fas fa-user fa-4x mb-3"></i>
+                                <i class="fas fa-user fa-4x mb-1"></i>
                                 <h4 class="card-title">Tu perfil</h4>
                                 <p class="card-text">¡En esta ventana puede visualizar tus datos y cambiar tu nombre o contraseña!</p>
                             </div>

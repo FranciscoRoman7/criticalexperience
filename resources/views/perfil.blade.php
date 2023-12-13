@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="cont">
+    <div id="perfil">
         <hr>
         <h1>Perfil de Usuario</h1>
         <hr>
@@ -20,7 +20,22 @@
             </div>
 
             <div class="form-group">
-                <label for="password">Contraseña:</label>
+                <label for="codigopostal">Código Postal:</label>
+                <input type="text" name="codigopostal" id="codigopostal" class="form-control" value="{{ old('codigopostal', $users->codigopostal) }}">
+            </div>
+
+            <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" name="direccion" id="direccion" class="form-control" value="{{ old('direccion', $users->direccion) }}">
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="text" name="telefono" id="telefono" class="form-control" value="{{ old('telefono', $users->telefono) }}">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Nueva Contraseña:</label>
                 <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" minlength="8">
                 @error('password')
                     <div class="invalid-feedback" style="color: red;">

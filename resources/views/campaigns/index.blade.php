@@ -8,11 +8,16 @@
     <h1>Lista de Campañas</h1>
     <hr>
     
+    <div class="form-group">
+        <label id="filterNameLabel" for="filterName">Filtrar por Nombre:</label>
+        <input type="text" class="form-control" id="filterName">
+    </div>
+
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createModal">
         <i class="fas fa-plus"></i>
     </button>
     
-    <table class="table mt-3">
+    <table class="table mt-3" id="campaignsTable">
         <thead>
             <tr>
                 <th>ID</th>
@@ -130,5 +135,21 @@
         </div>
     </div>
 @endforeach
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#filterName').on('input', function() {
+            var filterValue = $(this).val().toLowerCase();
+
+            $('#campaignsTable tbody tr').show();
+
+            $('#campaignsTable tbody tr').filter(function() {
+                var name = $(this).find('td:nth-child(2)').text().toLowerCase(); 
+                return !name.includes(filterValue);
+            }).hide();
+        });
+    });
+</script>
 
 @endsection
