@@ -22,7 +22,7 @@ Route::get('/home', function () {
     ]);
 })->name('home')->middleware('auth');
 
-Route::post('/', [RegisteredUserController::class, 'store'])->name('registro');
+Route::post('/reg', [RegisteredUserController::class, 'store'])->name('registro');
 Route::post('/home', [RegisteredUserController::class, 'login'])->name('login.post');
 
 //RUTAS CALENDARIO
@@ -66,7 +66,7 @@ Route::delete('/dados/borrar', [TiradaDadoController::class, 'borrarTiradas'])->
 //RUTAS PERFIL
 Route::get('/perfil', [PerfilController::class, 'show'])->name('perfil.show');
 Route::post('/perfil/actualizar', [PerfilController::class, 'update'])->name('perfil.update');
-
+Route::post('/perfil/cambiar-contrasena', [PerfilController::class, 'changePassword'])->name('perfil.changePassword');
 
 //RUTA LOGOUT
 Route::get('/logout', function () {

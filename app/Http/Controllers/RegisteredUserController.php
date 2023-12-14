@@ -13,6 +13,7 @@ class RegisteredUserController extends Controller
 
     public function store(Request $request)
     {
+        
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -28,7 +29,6 @@ class RegisteredUserController extends Controller
             'password.min' => 'La contraseña debe tener al menos 8 caracteres.',
         ]);
     
-        // Verificar si el correo electrónico ya existe en la base de datos
         $existingUser = User::where('email', $request->email)->exists();
     
         if ($existingUser) {

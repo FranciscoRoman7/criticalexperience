@@ -20,7 +20,7 @@
 
     @if(session('error'))
         <div class="alert alert-success">
-        <label id="register-error" style="color: red" class="error">{{ session('error') }}</label>
+        <label id="register-error" style="color: red" class="error">{{ $message }}</label>
         </div>
     @endif
     
@@ -75,48 +75,78 @@
                 <!-- Formulario para crear un nuevo usuario -->
                 <form action="{{ route('users.store') }}" method="POST">
                     @csrf
-                    
+
                     <!-- Campo para el nombre del usuario -->
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" class="form-control" name="name" id="name" required>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" required>
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
+
                     <!-- Campo para el email del usuario -->
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" id="email" required>
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" required>
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
 
-                    <!-- Campo para el cpostal del usuario -->
-
+                    <!-- Campo para el código postal del usuario -->
                     <div class="form-group">
                         <label for="codigopostal">Código Postal</label>
-                        <input type="text" class="form-control" name="codigopostal" id="codigopostal">
+                        <input type="text" class="form-control @error('codigopostal') is-invalid @enderror" name="codigopostal" id="codigopostal">
+                        @error('codigopostal')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
 
-                    <!-- Campo para la direccion del usuario -->
-
+                    <!-- Campo para la dirección del usuario -->
                     <div class="form-group">
                         <label for="direccion">Dirección</label>
-                        <input type="text" class="form-control" name="direccion" id="direccion">
+                        <input type="text" class="form-control @error('direccion') is-invalid @enderror" name="direccion" id="direccion">
+                        @error('direccion')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
-                    
-                    <!-- Campo para la telfono del usuario -->
 
+                    <!-- Campo para el teléfono del usuario -->
                     <div class="form-group">
                         <label for="telefono">Teléfono</label>
-                        <input type="text" class="form-control" name="telefono" id="telefono">
+                        <input type="text" class="form-control @error('telefono') is-invalid @enderror" name="telefono" id="telefono">
+                        @error('telefono')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
-                    
+
                     <!-- Campo para la contraseña del usuario -->
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="password" class="form-control" name="password" id="password" required>
+                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" required>
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
+
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" name="admin" id="admin" value="1">
                         <label class="form-check-label" for="admin">Admin</label>
                     </div>
+
                     <button type="submit" class="btn btn-success">Guardar</button>
                 </form>
             </div>
@@ -144,24 +174,41 @@
 
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" class="form-control" name="name" id="name" value="{{ $user->name }}" required>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" value="{{ old('name', $user->name) }}" required>
+                        @error('name')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
+
                     <div class="form-group">
                         <label for="codigopostal">Código Postal</label>
-                        <input type="text" class="form-control" name="codigopostal" id="codigopostal" value="{{ $user->codigopostal }}">
+                        <input type="text" class="form-control @error('codigopostal') is-invalid @enderror" name="codigopostal" id="codigopostal" value="{{ old('codigopostal', $user->codigopostal) }}">
+                        @error('codigopostal')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
+
                     <div class="form-group">
                         <label for="direccion">Dirección</label>
-                        <input type="text" class="form-control" name="direccion" id="direccion" value="{{ $user->direccion }}">
+                        <input type="text" class="form-control @error('direccion') is-invalid @enderror" name="direccion" id="direccion" value="{{ old('direccion', $user->direccion) }}">
+                        @error('direccion')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
+
                     <div class="form-group">
                         <label for="telefono">Teléfono</label>
-                        <input type="text" class="form-control" name="telefono" id="telefono" value="{{ $user->telefono }}">
+                        <input type="text" class="form-control @error('telefono') is-invalid @enderror" name="telefono" id="telefono" value="{{ old('telefono', $user->telefono) }}">
+                        @error('telefono')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
+
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" name="admin" id="admin" value="1" {{ $user->admin ? 'checked' : '' }}>
                         <label class="form-check-label" for="admin">Admin</label>
                     </div>
+
                     <button type="submit" class="btn btn-warning">Guardar Cambios</button>
                 </form>
             </div>
@@ -201,7 +248,7 @@
 
             // Mostrar solo las filas que coincidan con el correo electrónico filtrado
             $('#usersTable tbody tr').each(function() {
-                var email = $(this).find('td:eq(2)').text().toLowerCase(); // Cambia el índice según la columna del correo electrónico
+                var email = $(this).find('td:eq(2)').text().toLowerCase(); 
                 if (email.includes(filterValue)) {
                     $(this).show();
                 }
